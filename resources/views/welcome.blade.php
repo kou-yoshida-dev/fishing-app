@@ -5,7 +5,10 @@
 @section('content')
     @if (Auth::check())
         {{ Auth::user()->name }}
-        {!! link_to_route('logout.get', 'Logout') !!}</li>
+        {!! link_to_route('logout.get', 'Logout') !!}
+        
+        @include('microposts.microposts')
+         @include('microposts.form')
     @else
         <div class="center jumbotron">
             <div class="text-center">
@@ -16,4 +19,5 @@
             </div>
         </div>
     @endif
+    
 @endsection

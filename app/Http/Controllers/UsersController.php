@@ -18,6 +18,11 @@ class UsersController extends Controller
     }
     public function show($id){
         $user=User::findOrFail($id);
-        return view('users.show',['user'=>$user]);
+        
+        $microposts = $user->microposts()->orderBy('created_at', 'desc')->paginate(10);
+        
+        $user->count();
+      
+        return view('users.show',['user'=>$user,'microposts'=>$microposts]);
     }
 }
