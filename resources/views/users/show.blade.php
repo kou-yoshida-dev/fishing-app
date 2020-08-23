@@ -23,10 +23,20 @@
                 {{-- フォロワー一覧タブ --}}
                 <li class="nav-item"><a href="{{ route('users.followers',['id'=>$user->id]) }}" class="nav-link">Followers</a></li>
             </ul>
+            
+            
+             @include('microposts.microposts')
             @if (Auth::id() == $user->id)
                 {{-- 投稿フォーム --}}
                 @include('microposts.form')
             @endif
+            
+           
     </div>
+    
+
+    
+    
+    
 </div>
 @endsection

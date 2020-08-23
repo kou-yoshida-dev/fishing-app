@@ -93,4 +93,11 @@ class User extends Authenticatable
         return Micropost::whereIn('user_id', $userIds);
     }
     
+    
+    public function ownmicroposts(){
+        $microposts=Auth::microposts();
+        return $microposts;
+        
+    }
+    
 }

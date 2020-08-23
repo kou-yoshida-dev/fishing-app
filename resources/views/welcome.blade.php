@@ -6,9 +6,22 @@
     @if (Auth::check())
         {{ Auth::user()->name }}
         {!! link_to_route('logout.get', 'Logout') !!}
+        <div class="row">
+            <div class="col-4-sm">
+                @include('microposts.microposts')
+                @include('microposts.form')
+            </div>
+            <div class="col-8-sm ml-6">
+                 
+            
+               @include('users.card')
+           </div>
+            
+            
+            
+        </div>
         
-        @include('microposts.microposts')
-         @include('microposts.form')
+        
     @else
         <div class="center jumbotron">
             <div class="text-center">
