@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use \Auth;
+use App\Micropost;
+use Auth;
 class MicropostsController extends Controller
 {
     public function index(){
         $data=[];
         if(Auth::check()){
             $user=Auth::user();
-            $microposts=$user->microposts()->orderBy('created_at','desc')->paginate(10);
+            $microposts=$user->feed_microposts()->orderBy('created_at','desc')->paginate(10);
             $data=[
                 'uesr'=>$user,
                 'microposts'=>$microposts
@@ -19,6 +19,18 @@ class MicropostsController extends Controller
         }
         
         return view('welcome',$data);
+        
+        
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
     
     public function store(Request $request){
@@ -39,7 +51,7 @@ class MicropostsController extends Controller
     public function destroy($id)
     {
         // idの値で投稿を検索して取得
-        $micropost = \App\Micropost::findOrFail($id);
+        $micropost = Micropost::findOrFail($id);
 
         // 認証済みユーザ（閲覧者）がその投稿の所有者である場合は、投稿を削除
         if (Auth::id() === $micropost->user_id) {
