@@ -3,11 +3,13 @@
 @extends('layouts.app')
 
 @section('content')
-　　　{!! link_to_route('users.favorite','お気に入り一覧',['id'=>$user->id],['class'=>'btn btn-success'])  !!}
-    @if (Auth::check())
+　　　
         
      
-        <div class="row">
+        
+            
+    @if (Auth::check())
+    {!! link_to_route('users.favorite','お気に入り一覧',['id'=>$user->id],['class'=>'btn btn-success'])  !!}
             <div class="col-4-sm">
                 @include('microposts.microposts')
                 @include('microposts.form')
@@ -24,7 +26,7 @@
         
         
     @else
-        <div class="center jumbotron">
+        <div class="text-center jumbotron">
             <div class="text-center">
                 <h1>Welcome to the Microposts</h1>
                 {{-- ユーザ登録ページへのリンク --}}
