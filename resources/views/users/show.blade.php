@@ -21,7 +21,13 @@
             <span class="badge badge-secondary">{{ $user->followings_count }}</span>
         </a></li>
                 {{-- フォロワー一覧タブ --}}
-                <li class="nav-item"><a href="{{ route('users.followers',['id'=>$user->id]) }}" class="nav-link">Followers</a></li>
+                <li class="nav-item"><a href="{{ route('users.followers',['id'=>$user->id]) }}" class="nav-link">Followers <span class="badge badge-secondary">{{ $user->followings_count }}</span></a></li>
+               
+                
+                
+                {{-- お気に入り --}}
+                <li class="nav-item"><a href="{{ route('users.favorite',['id'=>$user->id]) }}" class="nav-link">Favorites
+                <span class="badge badge-secondary">{{ $user->favorite_count }}</span></a></li>
             </ul>
             
             

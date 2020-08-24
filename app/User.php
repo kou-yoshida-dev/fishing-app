@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
+use App\Micropost;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -43,7 +43,7 @@ class User extends Authenticatable
     }
     public function count(){
       
-         $this->loadCount(['microposts','followings','followers']);
+         $this->loadCount(['microposts','followings','followers','favorite']);
     }
     public function followings(){
         return $this->belongsToMany(User::class,'user_follow','user_id','follow_id');
@@ -94,10 +94,40 @@ class User extends Authenticatable
     }
     
     
-    public function ownmicroposts(){
-        $microposts=Auth::microposts();
-        return $microposts;
-        
-    }
+   public function favorite(){
+       return $this->belongsToMany(Micropost::class,'favorites','user_id','micropost_id');
+   }
+   
+   
+   
+   public function fav($micropostId){
+       $exist=$this->is_favoring($micropostId);
+       if($exist){
+           return false;
+       }else{
+           $this->favorite()->attach($micropostId);
+           return true;
+       }
+   }
+   
+   public function unfav($micropostId){
+       $exist=$this->is_favoring($micropostId);
+       if($exist){
+            $this->favorite()->detach($micropostId);
+           return true;
+          
+       }else{
+           return false;
+       }
+   }
+   
+   
+   
+   
+   
+   
+   public function is_favoring($micropostId){
+       return $this->favorite()->where('micropost_id',$micropostId)->exists();
+   }
     
 }

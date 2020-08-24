@@ -3,9 +3,10 @@
 @extends('layouts.app')
 
 @section('content')
+　　　{!! link_to_route('users.favorite','お気に入り一覧',['id'=>$user->id],['class'=>'btn btn-success'])  !!}
     @if (Auth::check())
-        {{ Auth::user()->name }}
-        {!! link_to_route('logout.get', 'Logout') !!}
+        
+     
         <div class="row">
             <div class="col-4-sm">
                 @include('microposts.microposts')
