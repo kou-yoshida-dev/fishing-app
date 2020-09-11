@@ -14,15 +14,17 @@
                     <div class="col-sm-4">
                         @include('users.card')
                         
-                        <div style="margin-top:80px;" class="col-sm-8 m-t-1 ">
+                        <div  class="col-sm-8 m-t-1 ">
                         @include('microposts.microposts')
                         @include('microposts.form')
                         </div>
+
+                        {!! link_to_route('users.favorite','マイページ',['id'=>$user->id],['class'=>'btn btn-success col-sm-4'])  !!}
                        
                     </div>
-                    {!! link_to_route('users.favorite','マイページ',['id'=>$user->id],['class'=>'btn btn-success'])  !!}
+                    
             </div>
-            
+           
             
             
            
