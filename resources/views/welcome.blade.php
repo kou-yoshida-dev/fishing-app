@@ -9,20 +9,26 @@
         
             
     @if (Auth::check())
-    {!! link_to_route('users.favorite','お気に入り一覧',['id'=>$user->id],['class'=>'btn btn-success'])  !!}
-            <div class="col-4-sm">
-                @include('microposts.microposts')
-                @include('microposts.form')
+    
+            <div class="row ">
+                    <div class="col-sm-4">
+                        @include('users.card')
+                        
+                        <div style="margin-top:80px;" class="col-sm-8 m-t-1 ">
+                        @include('microposts.microposts')
+                        @include('microposts.form')
+                        </div>
+                       
+                    </div>
+                    {!! link_to_route('users.favorite','マイページ',['id'=>$user->id],['class'=>'btn btn-success'])  !!}
             </div>
-            <div class="col-8-sm ml-6">
-                 
-            
-               @include('users.card')
-           </div>
             
             
             
+           
         </div>
+
+        
         
         
     @else
