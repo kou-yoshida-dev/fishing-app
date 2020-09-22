@@ -2,46 +2,77 @@
 
 @extends('layouts.app')
 
+        
+
 @section('content')
-　　　
-        
-     
-        
-            
-    @if (Auth::check())
+@if (Auth::check())
+
+
+
+
+<div class="row ">
+
     
-            <div class="row ">
-                    <div class="col-sm-4">
-                        @include('users.card')
-                        
-                        <div  class="col-sm-8 m-t-1 ">
-                        @include('microposts.microposts')
-                        @include('microposts.form')
-                        </div>
 
-                        {!! link_to_route('users.favorite','マイページ',['id'=>$user->id],['class'=>'btn btn-success col-sm-4'])  !!}
-                       
-                    </div>
-                    
-            </div>
-           
-            
-            
-           
+    <div class="col-12 col-md-8  mb-2 mt-4" style="margin:0 auto;">
+        
+
+        @if (Auth::id() == $user->id)
+        {{-- 投稿フォーム --}}
+        @include('microposts.form')
+
+        @endif
+
+        <div  style="text-align:right;">
+            {!! link_to_route('users.favorite','マイページへ',['id'=>$user->id],['class'=>'btn btn-success  col-5 mb-5 col-sm-3 mb-md-3 mt-4  '])  !!} 
         </div>
+    </div>
+
+
+</div>
+ 
+    
+
+<div class="row mt-5">
+    <h1 style="margin:0 auto;" >新着投稿</h1>
+</div>
+
+
+<div class="row">
+    
+
+    <div class="col-md-12 mt-5 ml-2">
+
+        @include('microposts.microposts')
+
+    </div>
+
+</div>            
+    
+    
+
+
+
 
         
-        
+
         
     @else
-        <div class="text-center jumbotron">
-            <div class="text-center">
-                <h1>Welcome to the Microposts</h1>
+
+        <div class="login mb-4">
+            <div class="text-center" >
+                <div class="top">
+                    <h1>Fishing tweet</h1>
+                    <p>釣りスポット共有アプリ</p>
+                </div>
                 {{-- ユーザ登録ページへのリンク --}}
-                {!! link_to_route('signup.get', 'Sign up now!', [], ['class' => 'btn btn-lg btn-primary']) !!}
-                {!! link_to_route('login', 'Login', [], ['class' => 'nav-link']) !!}
+                {!! link_to_route('signup.get', '新規登録', [], ['class' => 'btn btn-lg btn-primary col-6 mb-3 mt-5']) !!}
+                
+                {!! link_to_route('login', 'ログイン', [], ['class' => 'btn btn-lg btn-primary col-6']) !!}
             </div>
+            
         </div>
     @endif
-    
 @endsection
+        
+        

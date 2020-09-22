@@ -1,0 +1,104 @@
+
+
+
+.container{
+    max-width:none !important;
+
+    background-image:url('../img/fish7.png');
+    background-position:center;
+    background-size:cover;
+    background-repeat: repeat-y;
+    min-height:800px;
+
+    font-family: 'Times New Roman', Times, serif;
+}
+.login{
+    border-radius: 20px;
+    
+    width:100%;
+    height:600px;
+    background-image: url('../img/fishing.jpg');
+    background-position: center;
+    background-size: cover;
+    
+ 
+
+}
+.text-center{
+    padding-top:150px;
+}
+.text-center h1{
+    max-width:300px;
+    color:white;
+
+}
+.text-center p{
+
+    color:white;
+    margin:0;
+ 
+
+}
+.top{
+    margin:0 auto;
+    width:300px;
+    background-color:rgba(0, 0, 0, 0.651);
+    padding:10px 20px;
+    padding-bottom:10px;
+    border-radius: 20px;;
+}
+
+
+
+
+.tweet{
+    background-color:white;
+    padding:30px 20px;
+    border-radius:20px;
+    padding-top:10px;
+    box-shadow:0 0 10px 4px #e4e4e4;
+
+  
+}
+.tweet h2{
+    font-size: 32px;
+    border-radius:20px;
+    text-align: center;
+    margin-bottom:20px;
+    background-color:rgb(255, 255, 255);
+   
+   
+}
+
+
+
+
+
+.timeline{
+    background-color:white;
+    text-align: center;
+    width:80%;
+    margin:0 auto;
+    padding:20px 30px;
+
+    border:solid 1px rgb(234 234 234);
+}
+.post{
+    text-align:left;
+}
+.post h3{
+    display:inline-block;
+    
+    
+}
+.post p{
+    display:inline-block;
+    
+}
+
+
+
+.card{
+    max-width:200px;
+    max-height:320px;
+}

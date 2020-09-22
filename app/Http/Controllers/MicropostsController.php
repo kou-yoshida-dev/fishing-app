@@ -11,11 +11,13 @@ class MicropostsController extends Controller
         $data=[];
         if(Auth::check()){
             $user=Auth::user();
-            $microposts=$user->feed_microposts()->orderBy('created_at','desc')->paginate(10);
+            $microposts=$user->feed_microposts()->orderBy('created_at','desc')->paginate(4);
+            $microposts_all=Micropost::All();
             $microcount=$user->count();
             $data=[
                 'user'=>$user,
-                'microposts'=>$microposts
+                'microposts'=>$microposts,
+                'microposts_all'=>$microposts_all
                 ];
         }
         
@@ -37,11 +39,13 @@ class MicropostsController extends Controller
     public function store(Request $request){
         $request->validate([
             'content'=>'required|max:255',
+
             ]);
             
             
         $request->user()->microposts()->create([
             'content'=>$request->content,
+            'ganle'=>$request->ganle,
             ]);
             
         return back();    

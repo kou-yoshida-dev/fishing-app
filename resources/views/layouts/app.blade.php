@@ -4,20 +4,24 @@
         <meta charset="utf-8">
         <title>Microposts</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="{{asset('/assets/css/style.css')}}" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     </head>
 
     <body>
 
         {{-- ナビゲーションバー --}}
-        @include('commons.navbar')
 
+       
+        @include('commons.navbar')
         <div class="container">
             {{-- エラーメッセージ --}}
             @include('commons.error_messages')
 
             @yield('content')
         </div>
+      
+
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>

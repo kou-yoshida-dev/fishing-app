@@ -1,48 +1,33 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row">
-    <div class="col-sm-4">
-        <div class="card">
-                @include('users.card')
-        
-    </div>
-    
-    <div class="col-sm-8">
-            <ul class="nav   nav-tabs  nav-justified mb-3">
-                {{-- ユーザ詳細タブ --}}
-                <a href="{{ route('users.show', ['user' => $user->id]) }}" class="nav-link {{ Request::routeIs('users.show') ? 'active' : '' }}">
-                        TimeLine
-                        <span class="badge badge-secondary">{{ $user->microposts_count }}</span>
-                    </a>
-                {{-- フォロー一覧タブ --}}
-                <li class="nav-item"><a href="{{ route('users.followings', ['id' => $user->id]) }}" class="nav-link {{ Request::routeIs('users.followings') ? 'active' : '' }}">
-            Followings
-            <span class="badge badge-secondary">{{ $user->followings_count }}</span>
-        </a></li>
-                {{-- フォロワー一覧タブ --}}
-                <li class="nav-item"><a href="{{ route('users.followers',['id'=>$user->id]) }}" class="nav-link">Followers <span class="badge badge-secondary">{{ $user->followers_count }}</span></a></li>
-               
-                
-                
-                {{-- お気に入り --}}
-                <li class="nav-item"><a href="{{ route('users.favorite',['id'=>$user->id]) }}" class="nav-link">Favorites
-                <span class="badge badge-secondary">{{ $user->favorite_count }}</span></a></li>
-            </ul>
-            
-            
-             @include('microposts.microposts')
-            @if (Auth::id() == $user->id)
-                {{-- 投稿フォーム --}}
-                @include('microposts.form')
-            @endif
-            
-           
-    </div>
-    
+<div class="row ">
 
+    <div class="card  mb-4" style="margin:0 auto; ">
     
-    
-    
+                @include('users.card')
+
+    <div class="col-12 col-md-8  mb-5" style="margin:0 auto;">
+        
+
+        @if (Auth::id() == $user->id)
+        {{-- 投稿フォーム --}}
+        @include('microposts.form')
+
+        @endif
+    </div>
 </div>
+
+<div class="row">
+
+        <div class="col-sm-12" style="margin:0 auto;">
+            {{-- タブ --}}
+            @include('commons.tab')
+            {{-- ユーザ一覧 --}}
+            @include('microposts.microposts')
+        </div>
+
+</div>
+
+
 @endsection

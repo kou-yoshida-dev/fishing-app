@@ -9,7 +9,7 @@ class UsersController extends Controller
 {
     public function index(){
         // ユーザ一覧をidの降順で取得
-        $users = User::orderBy('id','desc')->paginate(3);
+        $users = User::orderBy('id','desc')->paginate(1);
          
 
         // ユーザ一覧ビューでそれを表示
@@ -20,7 +20,7 @@ class UsersController extends Controller
     public function show($id){
         $user=User::findOrFail($id);
         
-        $microposts = $user->microposts()->orderBy('created_at', 'desc')->paginate(10);
+        $microposts = $user->microposts()->orderBy('created_at', 'desc')->paginate(3);
         
         $user->count();
       

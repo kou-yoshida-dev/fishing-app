@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\User;
 class Micropost extends Model
 {
-    protected $fillable = ['content'];
+    protected $fillable = ['content','ganle'];
     
     public function user(){
         return $this->belongsTo(User::class);

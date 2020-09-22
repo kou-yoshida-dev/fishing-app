@@ -12,7 +12,7 @@
                     </div>
                     <div>
                         {{-- ユーザ詳細ページへのリンク --}}
-                        <p>{!! link_to_route('users.show', 'View profile', ['user' => $user->id]) !!}</p>
+                        <p>{!! link_to_route('users.show', 'ユーザー詳細', ['user' => $user->id],['class'=>'btn btn-light']) !!}</p>
                     </div>
                 </div>
             </li>
@@ -21,5 +21,5 @@
    
       {{ $users->links() }}
       
-      {!! link_to_route('users.show','uesr詳細',['user'=>Auth::id()],['class'=>'btn btn-success']) !!}
+      
 @endif

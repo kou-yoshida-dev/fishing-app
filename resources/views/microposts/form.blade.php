@@ -1,6 +1,31 @@
-{!! Form::open(['route' => 'microposts.store']) !!}
+{!! Form::open(['route' => 'microposts.store','class'=>'col-12 tweet']) !!}
+    <h2>釣りスポットを共有！</h2>
+
+
     <div class="form-group">
-        {!! Form::textarea('content', old('content'), ['class' => 'form-control', 'rows' => '2']) !!}
-        {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
+        {!! Form::label('region','地域',['class'=>'mr-3 badge badge-primary']) !!}
+        <div class="form-control">
+            {{Form::select('region',['北海道'=>'北海道','東北'=>'東北','関東'=>'関東','中部'=>'中部','近畿'=>'近畿','中国'=>'中国','四国'=>'四国','九州'=>'九州','その他'=>'その他',]) }}
+        </div> 
+
+       
     </div>
+    <div class="form-group">
+        {!! Form::label('ganle','ジャンル',['class'=>'mr-3 badge badge-primary']) !!}
+        <div class="form-control">
+            海:{!! Form::checkbox( 'ganle','海',null,['class'=>'mr-3']) !!}
+            川:{!! Form::checkbox( 'ganle','川',null,['class'=>'mr-3']) !!}
+            湖:{!! Form::checkbox( 'ganle','湖',null,['class'=>'mr-3']) !!}
+            その他:{!! Form::checkbox( 'ganle','その他',null,['class'=>'mr-3']) !!}
+        </div> 
+
+       
+    </div>
+    <div class="form-groupe mb-4">
+        {!! Form::label('content','コメント',['class'=>'mr-3 badge badge-primary']) !!}
+        {!! Form::textarea('content', old('content'), ['class' => 'form-control ', 'rows' => '2',]) !!}
+        
+    </div>
+   
+        {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block ']) !!}
 {!! Form::close() !!}
