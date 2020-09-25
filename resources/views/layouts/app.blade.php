@@ -35,6 +35,18 @@
         
         <script>
 
+
+
+
+
+
+
+
+
+
+
+
+
         var nowposition =document.getElementById('z').innerHTML;
    
        console.log(nowposition);

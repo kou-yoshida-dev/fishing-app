@@ -5,9 +5,13 @@
         
 
 @section('content')
-<p id="z">{{$map}}</p>
 
-<div id="my_map" style="width: 600px; height: 600px"></div>
+    <p class="col-12" id="z" style="text-align:center;">{{$map}}</p>
+
+
+
+    <div id="my_map" style="width: 600px; height: 600px; margin:0 auto;"></div>
+
 
 
 

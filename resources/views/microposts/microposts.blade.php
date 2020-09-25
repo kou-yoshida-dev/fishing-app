@@ -27,7 +27,7 @@
                             <p class="mb-0">{!! $micropost->content !!}</p>
                         </div>    
                         <div class="post mb-2 ">
-                            <h3 class="badge badge-primary">住所</h3>
+                            <h3 class="badge badge-primary">スポット住所</h3>
                             <p class="mb-0">{!! $micropost->map !!}</p>
 
                             
@@ -42,7 +42,7 @@
 
                     <div style="display:flex; justify-content:center;">
                     <div style="margin-right:10px;">
-                        {{link_to_route('microposts.map','地図で見る！',['id'=>$micropost->id],['class'=>'btn btn-sm btn-success ml-3'])}}
+                        {{link_to_route('microposts.map','スポット地図を見る！',['id'=>$micropost->id],['class'=>'btn btn-sm btn-success ml-3'])}}
                     </div>
 
 

@@ -28,7 +28,7 @@
         
     </div>
     <div class="form-groupe mb-4">
-        {!! Form::label('map','住所',['class'=>'mr-3 badge badge-primary']) !!}
+        {!! Form::label('map','スポット住所',['class'=>'mr-3 badge badge-primary']) !!}
         {!! Form::text('map', old('content'), ['class' => 'form-control ', 'rows' => '2',]) !!}
         
     </div>
