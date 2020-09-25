@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddRegionToMicropostsTable extends Migration
+class AddMapToMicroposts extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddRegionToMicropostsTable extends Migration
     public function up()
     {
         Schema::table('microposts', function (Blueprint $table) {
-            $table->string('region');
+            $table->string('map');
         });
     }
 
@@ -26,7 +26,7 @@ class AddRegionToMicropostsTable extends Migration
     public function down()
     {
         Schema::table('microposts', function (Blueprint $table) {
-            $table->dropColumn('region');
+            $table->dropColumn('map');
         });
     }
 }

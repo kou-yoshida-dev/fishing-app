@@ -44,7 +44,13 @@ Route::group(['middleware' => ['auth']], function () {
     
     Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
    
-    Route::resource('microposts', 'MicropostsController', ['only' => ['store', 'destroy']]);
+    Route::resource('microposts', 'MicropostsController', ['only' => ['store', 'destroy','update','edit']]);
+
+    Route::get('search','MicropostsController@search')->name('microposts.search');
+    Route::get('result','MicropostsController@result')->name('microposts.result');
+
+
+    Route::get('map/{id}','MicropostsController@map')->name('microposts.map');
     
     
     

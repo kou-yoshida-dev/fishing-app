@@ -1,4 +1,42 @@
-@if(count($microposts)>0)
+@extends('layouts.app')
+@section('content')
+
+
+{!! Form::open(['route'=>'microposts.result','method'=>'get','class'=>'col-12 col-md-8 mb-4 search'])  !!}
+    <h2>検索</h2>
+    <div class="form-group">
+        {!! Form::label('region','地域',['class'=>'mr-3 badge badge-primary']) !!}
+        <div class="form-control">
+            {{Form::select('region',['北海道'=>'北海道','東北'=>'東北','関東'=>'関東','中部'=>'中部','近畿'=>'近畿','中国'=>'中国','四国'=>'四国','九州'=>'九州','その他'=>'その他','すべて'=>'すべて'],'すべて') }}
+        </div> 
+
+       
+    </div>
+    <div class="form-group">
+        {!! Form::label('ganle','ジャンル',['class'=>'mr-3 badge badge-primary']) !!}
+        <div class="form-control">
+            海:{!! Form::radio( 'ganle','海',null,['class'=>'mr-2']) !!}
+            川:{!! Form::radio( 'ganle','川',null,['class'=>'mr-2']) !!}
+            湖:{!! Form::radio( 'ganle','湖',null,['class'=>'mr-2']) !!}
+            その他:{!! Form::radio( 'ganle','その他',null,['class'=>'mr-2']) !!}
+            すべて:{!! Form::radio( 'ganle','すべて',true,['class'=>'mr-2']) !!}
+        </div> 
+
+       
+    </div>
+
+    {!! Form::submit('検索',['class'=>'btn btn-light'])  !!}
+{!! Form::close()  !!}
+
+
+
+
+
+{{$region}}
+{{$ganle}}
+
+
+
 
 <ul class="list-unstyled">
     @foreach($microposts as $micropost)
@@ -10,43 +48,28 @@
                         {!! link_to_route('users.show', $micropost->user->name, ['user' => $micropost->user->id]) !!}
                         <span class="text-muted"> {{ $micropost->created_at }}</span>
                     </div>
-                    <div class="mb-4">
+                    <div>
                         {{-- 投稿内容 --}}
                         <div class="post mb-2" >
                             <h3 class="badge badge-primary mr-2" style="margin:0 !important;;">地域区分</h3>
                             <p class="mb-0" >{!! $micropost->region !!}</p>
                         </div>    
-
                         <div class="post mb-2" >
                             <h3 class="badge badge-primary mr-2" style="margin:0 !important;;">ジャンル</h3>
                             <p class="mb-0" >{!! $micropost->ganle !!}</p>
                         </div>    
-
                         <div class="post mb-2">
                             <h3 class="badge badge-primary">コメント</h3>
                             <p class="mb-0">{!! $micropost->content !!}</p>
                         </div>    
-                        <div class="post mb-2 ">
+                        <div class="post mb-2">
                             <h3 class="badge badge-primary">住所</h3>
                             <p class="mb-0">{!! $micropost->map !!}</p>
-
-                            
-                            
-                         
                         </div>    
-
-
-                        
                             
                     </div>
 
                     <div style="display:flex; justify-content:center;">
-                    <div style="margin-right:10px;">
-                        {{link_to_route('microposts.map','地図で見る！',['id'=>$micropost->id],['class'=>'btn btn-sm btn-success ml-3'])}}
-                    </div>
-
-
-                    
                         <div style="margin-right:10px;">
                             
                                         @if(Auth::user()->is_favoring($micropost->id))
@@ -91,8 +114,6 @@
     @endforeach
     
 </ul>
-{{$microposts->links()}}
-@else
-  <h1>投稿はありません</h1>
 
-@endif
+
+@endsection

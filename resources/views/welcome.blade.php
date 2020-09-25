@@ -24,7 +24,10 @@
         @endif
 
         <div  style="text-align:right;">
-            {!! link_to_route('users.favorite','マイページへ',['id'=>$user->id],['class'=>'btn btn-success  col-5 mb-5 col-sm-3 mb-md-3 mt-4  '])  !!} 
+            {!! link_to_route('users.favorite','詳細ページへ',['id'=>$user->id],['class'=>'btn btn-success  col-5 mb-5 col-sm-3 mb-md-3 mt-4  '])  !!} 
+        </div>
+        <div  style="text-align:right;">
+            {!! link_to_route('microposts.search','検索',[],['class'=>'btn btn-success  col-5 mb-5 col-sm-3 mb-md-3 mt-4  '])  !!} 
         </div>
     </div>
 
@@ -41,7 +44,7 @@
 <div class="row">
     
 
-    <div class="col-md-12 mt-5 ml-2">
+    <div class="col-md-11 mt-5" style="margin:0 auto;">
 
         @include('microposts.microposts')
 

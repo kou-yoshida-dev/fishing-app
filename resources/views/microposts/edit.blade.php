@@ -1,11 +1,19 @@
-{!! Form::open(['route' => 'microposts.store','class'=>'col-12 tweet']) !!}
-    <h2>釣りスポットを共有！</h2>
+@extends('layouts.app')
+@section('content')
+
+
+
+<h1>{{$micropost->id}}の編集画面</h1>
+
+
+{!! Form::open(['route' => ['microposts.update',$micropost->id],'method'=>'put']) !!}
+    
 
 
     <div class="form-group">
         {!! Form::label('region','地域',['class'=>'mr-3 badge badge-primary']) !!}
         <div class="form-control">
-            {{Form::select('region',['北海道'=>'北海道','東北'=>'東北','関東'=>'関東','中部'=>'中部','近畿'=>'近畿','中国'=>'中国','四国'=>'四国','九州'=>'九州','その他'=>'その他',],'その他') }}
+            {{Form::select('region',['北海道'=>'北海道','東北'=>'東北','関東'=>'関東','中部'=>'中部','近畿'=>'近畿','中国'=>'中国','四国'=>'四国','九州'=>'九州','その他'=>'その他',],$micropost->region) }}
         </div> 
 
        
@@ -24,16 +32,13 @@
    
     <div class="form-groupe mb-4">
         {!! Form::label('content','コメント',['class'=>'mr-3 badge badge-primary']) !!}
-        {!! Form::textarea('content', old('content'), ['class' => 'form-control ', 'rows' => '2',]) !!}
+        {!! Form::textarea('content', $micropost->content,['class' => 'form-control ', 'rows' => '2']) !!}
         
     </div>
-    <div class="form-groupe mb-4">
-        {!! Form::label('map','住所',['class'=>'mr-3 badge badge-primary']) !!}
-        {!! Form::text('map', old('content'), ['class' => 'form-control ', 'rows' => '2',]) !!}
-        
-    </div>
-
    
-   
-        {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block ']) !!}
+        {!! Form::submit('更新', ['class' => 'btn btn-primary btn-block ']) !!}
 {!! Form::close() !!}
+
+
+
+@endsection
