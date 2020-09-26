@@ -23,12 +23,12 @@
 
         @endif
 
-        <div  style="text-align:right;">
-            {!! link_to_route('users.favorite','詳細ページへ',['id'=>$user->id],['class'=>'btn btn-success  col-5 mb-5 col-sm-3 mb-md-3 mt-4  '])  !!} 
+        <!-- <div  style="text-align:right;">
+            {!! link_to_route('users.favorite','マイページへ',['id'=>$user->id],['class'=>'btn btn-success  col-5 mb-5 col-sm-3 mb-md-3 mt-4  '])  !!} 
         </div>
         <div  style="text-align:right;">
             {!! link_to_route('microposts.search','検索',[],['class'=>'btn btn-success  col-5 mb-5 col-sm-3 mb-md-3 mt-4  '])  !!} 
-        </div>
+        </div> -->
     </div>
 
 
@@ -37,7 +37,7 @@
     
 
 <div class="row mt-5">
-    <h1 style="margin:0 auto;" >新着投稿</h1>
+    <h1 style="margin:0 auto;" >釣り友の投稿</h1>
 </div>
 
 
@@ -63,7 +63,7 @@
     @else
 
         <div class="login mb-4">
-            <div class="text-center" >
+            <div class="text-center notlogin" >
                 <div class="top">
                     <h1>Fishing tweet</h1>
                     <p>釣りスポット共有アプリ</p>

@@ -2,11 +2,11 @@
 
 @section('content')
     <div class="text-center" >
-        <h1 class="mb-3" style="color:black; margin:0 auto;">Log in</h1>
+        <h1 class="mb-3 mt-3" style="color:black; margin:0 auto;">Log in</h1>
     </div>
 
     <div class="row">
-        <div class="col-sm-6 offset-sm-3">
+        <div class="col-8 col-sm-6 offset-sm-3" style="margin:0 auto;">
 
             {!! Form::open(['route' => 'login.post']) !!}
                 <div class="form-group">
@@ -19,7 +19,7 @@
                     {!! Form::password('password', ['class' => 'form-control']) !!}
                 </div>
 
-                {!! Form::submit('Log in', ['class' => 'btn btn-primary btn-block']) !!}
+                {!! Form::submit('ログイン', ['class' => 'btn btn-primary btn-block']) !!}
             {!! Form::close() !!}
 
             {{-- ユーザ登録ページへのリンク --}}

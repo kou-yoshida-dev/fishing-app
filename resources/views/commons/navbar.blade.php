@@ -1,4 +1,4 @@
-<header class="mb-4">
+<header >
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         {{-- トップページへのリンク --}}
         <a class="navbar-brand" href="/">釣りスポット</a>
@@ -11,6 +11,8 @@
             <ul class="navbar-nav mr-auto"></ul>
             @if(Auth::check())
             <ul class="navbar-nav">
+     
+                <li class="nav-item">{!! link_to_route('microposts.search','投稿一覧・検索',[],['class'=>'nav-link']) !!}</li>
                 <li class="nav-item">{!! link_to_route('users.index','ユーザー一覧',[],['class'=>'nav-link']) !!}</li>
                 <li class="nav-item">{!! link_to_route('users.show','マイページ',['user'=>Auth::id()],['class'=>'nav-link']) !!}</li>
                 <li class="nav-item">{!! link_to_route('logout.get','ログアウト',[],['class'=>'nav-link']) !!}</li>
