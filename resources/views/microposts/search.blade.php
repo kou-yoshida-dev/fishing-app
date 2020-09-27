@@ -2,7 +2,7 @@
 @section('content')
 
 
-{!! Form::open(['route'=>'microposts.result','method'=>'get','class'=>'col-12 col-md-8 mb-4 search '])  !!}
+{!! Form::open(['route'=>'microposts.result','method'=>'get','class'=>'col-11 col-md-8 mb-4 mt-5 search '])  !!}
     <h2>検索</h2>
     <div class="form-group">
         {!! Form::label('region','地域',['class'=>'mr-3 badge badge-primary']) !!}
@@ -41,7 +41,7 @@
 
 <ul class="list-unstyled">
     @foreach($microposts as $micropost)
-    <li class="medi mb-3 timeline col-12 col-sm-8 col-md-6">
+    <li class="medi mb-sm-3 timeline col-12 col-sm-8 col-md-6">
         <div class="media-bo">
                     <div class="post mb-2">
                         <img class="mr-3" src="{{Gravatar::get($micropost->user->email,['size'=>50])}}">

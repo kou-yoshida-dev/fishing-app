@@ -14,7 +14,7 @@
 
     
 
-    <div class="col-12 col-md-8  mb-2 mt-4" style="margin:0 auto;">
+    <div class="col-11 col-md-8  mb-2 mt-4" style="margin:0 auto; padding:0;">
         
 
         @if (Auth::id() == $user->id)
@@ -44,7 +44,7 @@
 <div class="row">
     
 
-    <div class="col-md-11 mt-5" style="margin:0 auto;">
+    <div class="col-md-12 mt-5" style="margin:0 auto; padding:0;">
 
         @include('microposts.microposts')
 
@@ -62,7 +62,7 @@
         
     @else
 
-        <div class="login mb-4">
+        <div class="login">
             <div class="text-center notlogin" >
                 <div class="top">
                     <h1>Fishing tweet</h1>

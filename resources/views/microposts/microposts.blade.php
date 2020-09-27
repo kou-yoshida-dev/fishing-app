@@ -2,7 +2,7 @@
 
 <ul class="list-unstyled">
     @foreach($microposts as $micropost)
-    <li class="medi mb-3 timeline col-12 col-sm-8 col-md-6">
+    <li class="medi mb-sm-3 timeline col-12 col-sm-8 col-md-6">
         <div class="media-bo">
                     <div class="post mb-2">
                         <img class="mr-3" src="{{Gravatar::get($micropost->user->email,['size'=>50])}}">
@@ -26,9 +26,13 @@
                             <h3 class="badge badge-primary col-6 col-sm-3 col-md-4">コメント</h3>
                             <p class="mt-2 mb-0 col-10 ">{!! $micropost->content !!}</p>
                         </div>    
-                        <div class="post" style="text-align:center;" >
+                        <div class="post mb-5" style="text-align:center;" >
                             <h3 class="badge badge-primary col-6 col-sm-3 col-md-4">スポット住所</h3>
                             <p class="mt-2 mb-0 col-10 " >{!! $micropost->map !!}</p>
+
+
+
+                            {{link_to_route('microposts.map','スポット地図を見る！',['id'=>$micropost->id],['class'=>'btn btn-sm btn-primary microbtn','style'=>'margin:0 auto; background-color:white; color:blue'])}}
 
 
                        
@@ -44,11 +48,9 @@
                         
                             
                     </div>
-                    <div class="row mb-3">
-                        {{link_to_route('microposts.map','スポット地図を見る！',['id'=>$micropost->id],['class'=>'btn btn-sm btn-primary microbtn','style'=>'margin:0 auto; background-color:white; color:blue'])}}
-                    </div>
+                   
 
-                    <div style="display:flex; justify-content:center;">
+                     <div style="display:flex; justify-content:center;">
                     
 
 
@@ -86,6 +88,7 @@
                         
                         
                     </div>
+                    
                     
                     
                     

@@ -24,7 +24,7 @@
 
        
         @include('commons.navbar')
-        <div class="container pt-3 pb-5">
+        <div class="container">
             {{-- エラーメッセージ --}}
             @include('commons.error_messages')
 
@@ -33,7 +33,7 @@
 
      
 
-        @yield('javascript');
+        @yield('javascript')
 <script>
 // MAPページ用
 var nowposition =document.getElementById('z').innerHTML;
@@ -129,20 +129,6 @@ function initMap() {
   });
 } 
 </script> 
-
-
-
-
-
-
-
-
-  
-  
- 
-
-
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>

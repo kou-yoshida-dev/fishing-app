@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
 
+<div class="col-11 col-sm-6 mt-5 text-center" style="margin:0 auto;">
 
-
-<h1>{{$micropost->id}}の編集画面</h1>
+<h1>編集画面</h1>
 
 
 {!! Form::open(['route' => ['microposts.update',$micropost->id],'method'=>'put']) !!}
@@ -39,6 +39,6 @@
         {!! Form::submit('更新', ['class' => 'btn btn-primary btn-block ']) !!}
 {!! Form::close() !!}
 
-
+</div>
 
 @endsection

@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="text-center" >
-        <h1 class="mb-3 mt-3" style="color:black; margin:0 auto;">Log in</h1>
+        <h1 class="mb-3 mt-3" style="color:black; margin:0 auto;">ログイン</h1>
     </div>
 
     <div class="row">
