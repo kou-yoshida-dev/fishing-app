@@ -29,11 +29,25 @@
     </div>
     <div class="form-groupe mb-4">
         {!! Form::label('map','スポット住所',['class'=>'mr-3 badge badge-primary']) !!}
-        {!! Form::text('map', old('content'), ['class' => 'form-control ', 'rows' => '2',]) !!}
+        {!! Form::text('map', '', ['id'=>'result','class' => 'form-control mb-3', 'rows' => '2',]) !!}
         
-    </div>
 
+
+        <p class="mt-2">*スポット位置をクリックすると住所が入力されます。</p>
+        <div id="gmap" style="height:300px;width:100% ; margin:0 auto;"></div> <!-- 地図を表示する領域 -->
+
+
+       
+ 
+    </div>
+    
+    
    
    
         {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block ']) !!}
 {!! Form::close() !!}
+
+
+
+
+

@@ -77,5 +77,10 @@
         </div>
     @endif
 @endsection
+
+
+@section('javascript')
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFhznShSE-YwtM7GX98uE3YQMDFUrwy48&callback=initMap" async defer></script><!-- YOUR_API_KEYの部分は取得した APIキーで置き換えます　投稿 -->
+@endsection
         
         
