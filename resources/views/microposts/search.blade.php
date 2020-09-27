@@ -69,6 +69,7 @@
                             <h3 class="badge badge-primary col-6 col-sm-3 col-md-4">スポット住所</h3>
                             <p class="mt-2 mb-0 col-10 " >{!! $micropost->map !!}</p>
 
+                            {{link_to_route('microposts.map','スポット地図を見る！',['id'=>$micropost->id],['class'=>'btn btn-sm btn-primary microbtn','style'=>'margin:0 auto; background-color:white; color:blue'])}}
 
                        
                             
@@ -83,49 +84,50 @@
                         
                             
                     </div>
-                    <div class="row mb-3">
-                        {{link_to_route('microposts.map','スポット地図を見る！',['id'=>$micropost->id],['class'=>'btn btn-sm btn-primary microbtn','style'=>'margin:0 auto; background-color:white; color:blue'])}}
+                 
+
+                    
+                    <div class="mb-4" style="display:flex; justify-content:center;">
+                    
+
+
+                    
+                    <div style="margin-right:10px;">
+                        
+                                    @if(Auth::user()->is_favoring($micropost->id))
+                                    {!! Form::open(['route'=>['micropost.unfav',$micropost->id],'method'=>'delete'])!!}
+                                    {!! Form::submit('お気に入り解除',['class'=>'btn btn-sm btn-danger microbtn','style'=>'background-color:white; color:red;'])  !!}
+                                    {!! Form::close()!!}
+                                    @else
+                                    {!! Form::open(['route'=>['micropost.fav',$micropost->id],'method'=>'post'])!!}
+                                    {!! Form::submit('お気に入り',['class'=>'btn btn-sm btn-success microbtn','style'=>'background-color:white; color:green;'])  !!}
+                                    {!! Form::close()!!}
+                                    @endif
+                       
                     </div>
 
-                    <div style="display:flex; justify-content:center;">
-                    
 
+                    <div style="margin-right:10px;">
 
-                    
-                        <div style="margin-right:10px;">
-                            
-                                        @if(Auth::user()->is_favoring($micropost->id))
-                                        {!! Form::open(['route'=>['micropost.unfav',$micropost->id],'method'=>'delete'])!!}
-                                        {!! Form::submit('お気に入り解除',['class'=>'btn btn-sm btn-danger microbtn','style'=>'background-color:white; color:red;'])  !!}
-                                        {!! Form::close()!!}
-                                        @else
-                                        {!! Form::open(['route'=>['micropost.fav',$micropost->id],'method'=>'post'])!!}
-                                        {!! Form::submit('お気に入り',['class'=>'btn btn-sm btn-success microbtn','style'=>'background-color:white; color:green;'])  !!}
-                                        {!! Form::close()!!}
-                                        @endif
-                           
-                        </div>
+                    @if (Auth::id() == $micropost->user_id)
+                        {{-- 投稿削除ボタンのフォーム --}}
+                        {!! Form::open(['route' => ['microposts.destroy', $micropost->id], 'method' => 'delete']) !!}
+                            {!! Form::submit('削除', ['class' => 'btn btn-danger btn-sm microbtn','style'=>'background-color:white; color:red;']) !!}
+                        {!! Form::close() !!}
+                    @endif
 
-
-                        <div style="margin-right:10px;">
-
-                        @if (Auth::id() == $micropost->user_id)
-                            {{-- 投稿削除ボタンのフォーム --}}
-                            {!! Form::open(['route' => ['microposts.destroy', $micropost->id], 'method' => 'delete']) !!}
-                                {!! Form::submit('削除', ['class' => 'btn btn-danger btn-sm microbtn','style'=>'background-color:white; color:red;']) !!}
-                            {!! Form::close() !!}
-                        @endif
-
-                        </div>
-
-
-                        @if(Auth::id()==$micropost->user_id)
-                            {!! link_to_route('microposts.edit','編集',['micropost'=>$micropost->id],['class'=>'btn btn-success btn-sm microbtn','style'=>'background-color:white; color:green;'])  !!}
-                        @endif
-                        
-                        
                     </div>
+
+
+                    @if(Auth::id()==$micropost->user_id)
+                        {!! link_to_route('microposts.edit','編集',['micropost'=>$micropost->id],['class'=>'btn btn-success btn-sm microbtn','style'=>'background-color:white; color:green;'])  !!}
+                    @endif
                     
+                    
+                </div>
+                
+                
+                
                     
                     
                     

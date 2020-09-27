@@ -26,13 +26,13 @@
                             <h3 class="badge badge-primary col-6 col-sm-3 col-md-4">コメント</h3>
                             <p class="mt-2 mb-0 col-10 ">{!! $micropost->content !!}</p>
                         </div>    
-                        <div class="post mb-5" style="text-align:center;" >
+                        <div class="post " style="text-align:center;" >
                             <h3 class="badge badge-primary col-6 col-sm-3 col-md-4">スポット住所</h3>
                             <p class="mt-2 mb-0 col-10 " >{!! $micropost->map !!}</p>
 
 
 
-                            {{link_to_route('microposts.map','スポット地図を見る！',['id'=>$micropost->id],['class'=>'btn btn-sm btn-primary microbtn','style'=>'margin:0 auto; background-color:white; color:blue'])}}
+                            {{link_to_route('microposts.map','スポット地図を見る！',['id'=>$micropost->id],['class'=>'mt-2 btn btn-sm btn-primary microbtn','style'=>'margin:0 auto; background-color:white; color:blue'])}}
 
 
                        
@@ -50,7 +50,7 @@
                     </div>
                    
 
-                     <div style="display:flex; justify-content:center;">
+                     <div class="mb-4" style="display:flex; justify-content:center;">
                     
 
 
