@@ -92,7 +92,7 @@
 
 
                     
-                    <div style="margin-right:10px;">
+                    <div>
                         
                                     @if(Auth::user()->is_favoring($micropost->id))
                                     {!! Form::open(['route'=>['micropost.unfav',$micropost->id],'method'=>'delete'])!!}
