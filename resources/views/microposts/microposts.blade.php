@@ -99,6 +99,6 @@
 </ul>
 {{$microposts->links()}}
 @else
-  <h1>投稿はありません</h1>
+  <p style="text-align:center;">投稿はありません</p>
 
 @endif

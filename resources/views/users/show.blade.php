@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row mt-5">
+<div class=" pt-5 row" style="margin:0;">
 
-    <div class="card  mb-4" style="margin:0 auto; ">
+    <div class="card " style="margin:80px auto; margin-top:0;">
     
                 @include('users.card')
 
@@ -18,7 +18,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="">
 
         <div class="col-sm-12" style="margin:0 auto;">
             {{-- タブ --}}

@@ -2,7 +2,7 @@
 @section('content')
 
 
-{!! Form::open(['route'=>'microposts.result','method'=>'get','class'=>'col-12 col-md-8 mb-4 search mt-3'])  !!}
+{!! Form::open(['route'=>'microposts.result','method'=>'get','class'=>'col-12 col-md-8 mb-4 search '])  !!}
     <h2>検索</h2>
     <div class="form-group">
         {!! Form::label('region','地域',['class'=>'mr-3 badge badge-primary']) !!}

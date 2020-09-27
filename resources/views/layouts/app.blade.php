@@ -24,7 +24,7 @@
 
        
         @include('commons.navbar')
-        <div class="container">
+        <div class="container pt-3 pb-5">
             {{-- エラーメッセージ --}}
             @include('commons.error_messages')
 
