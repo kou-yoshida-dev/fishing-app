@@ -39,7 +39,9 @@ class MicropostsController extends Controller
     public function store(Request $request){
         $request->validate([
             'content'=>'required|max:255',
-
+            'ganle'=>'required',
+            'region'=>'required',
+            'region'=>'required',
             ]);
             
             
@@ -61,6 +63,16 @@ class MicropostsController extends Controller
 
 
     public function update(Request $request,$id){
+
+
+        $request->validate([
+            'content'=>'required|max:255',
+            'ganle'=>'required',
+            'region'=>'required',
+            'region'=>'required',
+            ]);
+
+            
         $micropost=Micropost::findOrfail($id);
         $micropost->content=$request->content;
         $micropost->region=$request->region;
