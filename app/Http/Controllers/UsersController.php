@@ -8,11 +8,9 @@ use App\User;
 class UsersController extends Controller
 {
     public function index(){
-        // ユーザ一覧をidの降順で取得
+        // ユーザ一覧
         $users = User::orderBy('id','desc')->paginate(1);
          
-
-        // ユーザ一覧ビューでそれを表示
         return view('users.index', [
             'users' => $users,
         ]);
@@ -40,16 +38,14 @@ class UsersController extends Controller
     
     public function followers($id)
     {
-        // idの値でユーザを検索して取得
         $user = User::findOrFail($id);
 
-        // 関係するモデルの件数をロード
+        // ページネートの為
         $user->count();
 
-        // ユーザのフォロワー一覧を取得
+        // フォロワー一覧を
         $followers = $user->followers()->paginate(10);
 
-        // フォロワー一覧ビューでそれらを表示
         return view('users.followers', [
             'user' => $user,
             'users' => $followers,

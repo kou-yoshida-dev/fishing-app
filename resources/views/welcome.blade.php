@@ -18,17 +18,12 @@
         
 
         @if (Auth::id() == $user->id)
-        {{-- 投稿フォーム --}}
+        {{-- 投稿 --}}
         @include('microposts.form')
 
         @endif
 
-        <!-- <div  style="text-align:right;">
-            {!! link_to_route('users.favorite','マイページへ',['id'=>$user->id],['class'=>'btn btn-success  col-5 mb-5 col-sm-3 mb-md-3 mt-4  '])  !!} 
-        </div>
-        <div  style="text-align:right;">
-            {!! link_to_route('microposts.search','検索',[],['class'=>'btn btn-success  col-5 mb-5 col-sm-3 mb-md-3 mt-4  '])  !!} 
-        </div> -->
+      
     </div>
 
 
@@ -79,6 +74,8 @@
 @endsection
 
 
+
+<!-- MAP読み込み -->
 @section('javascript')
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFhznShSE-YwtM7GX98uE3YQMDFUrwy48&callback=initMap" async defer></script><!-- YOUR_API_KEYの部分は取得した APIキーで置き換えます　投稿 -->
 @endsection

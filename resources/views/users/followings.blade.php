@@ -10,7 +10,7 @@
         
 
         @if (Auth::id() == $user->id)
-        {{-- 投稿フォーム --}}
+        {{-- 投稿 --}}
         @include('microposts.form')
 
         @endif

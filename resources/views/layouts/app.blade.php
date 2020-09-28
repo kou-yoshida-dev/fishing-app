@@ -20,12 +20,12 @@
     
      
 
-        {{-- ナビゲーションバー --}}
+        {{-- ナビゲーション --}}
 
        
         @include('commons.navbar')
         <div class="container">
-            {{-- エラーメッセージ --}}
+            {{-- エラー --}}
             @include('commons.error_messages')
 
             @yield('content')
