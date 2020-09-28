@@ -1,4 +1,4 @@
-<ul class="nav   nav-tabs  nav-justified mb-3">
+<ul class="nav   nav-tabs  nav-justified mb-sm-5 ">
                 {{-- ユーザ詳細タブ --}}
                 <li class="nav-item" style="width:20%;">
                 <a href="{{ route('users.show', ['user' => $user->id]) }}" class="nav-link {{ Request::routeIs('users.show') ? 'active' : '' }} ">

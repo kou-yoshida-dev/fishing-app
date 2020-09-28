@@ -70,7 +70,7 @@
                         </div>
 
 
-                        <div style="margin-right:10px;">
+                        <div style="margin:0 10px;">
 
                         @if (Auth::id() == $micropost->user_id)
                             {{-- 投稿削除ボタンのフォーム --}}
