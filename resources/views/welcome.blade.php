@@ -66,7 +66,26 @@
                 {{-- ユーザ登録ページへのリンク --}}
                 {!! link_to_route('signup.get', '新規登録', [], ['class' => 'btn btn-lg btn-primary col-6 mb-3 mt-5']) !!}
                 
-                {!! link_to_route('login', 'ログイン', [], ['class' => 'btn btn-lg btn-primary col-6']) !!}
+                {!! link_to_route('login', 'ログイン', [], ['class' => 'btn btn-lg btn-primary col-6 mb-3 ']) !!}
+                
+
+
+                {!! Form::open(['route' => 'login.post']) !!}
+                <div class="form-group" style="display:none;">
+                    {!! Form::label('email', 'メール') !!}
+                    {!! Form::email('email', 'aaa@a.com', ['class' => 'form-control']) !!}
+                </div>
+
+                <div class="form-group" style="display:none;">
+                    {!! Form::label('password', 'パスワード') !!}
+                    {!! Form::text('password','1111aaaa', ['class' => 'form-control'],'aa') !!}
+                </div>
+
+                {!! Form::submit('ゲストログイン', ['class' => 'btn btn-success btn-block col-4 mb-3','style'=>'margin:0 auto;' ]) !!}
+                {!! Form::close() !!}
+
+
+                
             </div>
             
         </div>
