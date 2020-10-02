@@ -7,7 +7,6 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-
 ## このアプリについて
 - 釣りスポットを共有することの出来るアプリケーションです。GoogleMap API を使用し、詳細なスポット位置を投稿できるようにしました。
 
